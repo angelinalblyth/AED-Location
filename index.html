@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>AED Locations</title>
+    <link rel='stylesheet' type='text/css' href='style.css'>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+  integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+  crossorigin=""></script>
+
+
+   <script src="mapWrapper.js"></script>
+   <script src="app.js"></script>
+  </head>
+  <body>
+<h1>Automated External Defibrillators Location</h1>
+
+<p>
+  Below you can search for a location and you will see a result of nearby defibrillators.
+</p>
+
+<p>
+  P.O.C - only working for the Trafford area.
+</p>
+
+<p>
+  Locations of Automated External Defibrillators (AEDs) in Trafford, Greater Manchester. The dataset was crowdsourced. The locations may not be exact in all cases as they are derived from postcodes. Please note that these defibrillators may have restrictions on public availability and may not be available 24/7.
+</p>
+
+    <div id="main-map">
+    </div>
+
+    
+  <select id= 'defibLocationDropdown'></select>
+    <div id='locationSuggestions'>
+      <p>
+        Locations suggestions container.
+      </p>
+    </div>
+
+<div>
+  <a href="https://data.gov.uk/dataset/6f38b81c-7985-4651-93b4-d67a695cdde4/defibrillators-in-trafford">Source</a>
+</div>
+  </body>
+</html>
