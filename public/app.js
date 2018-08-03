@@ -11,6 +11,7 @@ const requestComplete = function() {
   defibs = JSON.parse(jsonString);
   //showTraffordCentral(defibs)
   showListOfDefibs(defibs)
+  handleSelected(defibs)
 }
 
 const showListOfDefibs = function(defibs){
@@ -35,6 +36,49 @@ const showAedsNearMe = function(mainMap){
     mainMap.moveMap(coords);
   })
 }
+
+const handleSelected = function(defibs){
+  let selectTag = document.getElementById('defibLocationDropdown');
+  selectTag.addEventListener('change', function(){
+    var defib = defibs[this.value];
+    console.log(defib);
+    showDefibDetails(defib);
+  })
+};
+
+
+
+const showDefibDetails = function(defib){
+  var defibDetails = document.getElementById('defibDetails');
+
+  //Location name
+  var location = document.createElement('h1');
+  location.innerText = defib.Location;
+  defibDetails.appendChild(location);
+  //Location address line 1
+  var addressLine1 = document.createElement('p');
+  addressLine1.innerText = defib.Address1;
+  defibDetails.appendChild(addressLine1);
+  //Location address line 2
+  var addressLine2 = document.createElement('p');
+  addressLine2.innerText = defib.Address2;
+  defibDetails.appendChild(addressLine2);
+  //Location address line 3
+  var addressLine3 = document.createElement('p');
+  addressLine3.innerText = defib.Address3;
+  defibDetails.appendChild(addressLine3);
+  //Location postcode
+  var postcode = document.createElement('p');
+  postcode.innerText = defib.Postcode;
+  defibDetails.appendChild(postcode);
+  //Notes
+  var notes = document.createElement('p');
+  notes.innerText = defib.Notes;
+  defibDetails.appendChild(notes);
+
+  var jsonString = JSON.stringify(defib);
+  localStorage.setItem('selected_defib', jsonString);
+};
 
 
 // find browser location
