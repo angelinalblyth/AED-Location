@@ -27,18 +27,34 @@ const showListOfDefibs = function(defibs){
   });
 
 }
+//Shows where the user is currently
+//Want to expand on this to show defibs near them
+const showAedsNearMe = function(mainMap){
+  navigator.geolocation.getCurrentPosition(function(position){
+    let coords = [position.coords.latitude, position.coords.longitude];
+    mainMap.moveMap(coords);
+  })
+}
+
+
+// find browser location
+//const findMe =function(){return navigator.geolocation.getCurrentPosition(function(position){return position})}
+//const findMe3 = function(){return navigator.geolocation.getCurrentPosition(function(position){console.log(position.coords)})}
 
 var app = function(){
   const url = 'https://www.trafforddatalab.io/open_data/defibrillators/trafford_defibrillators.json';
-
+  //const map = new MapWrapper('main-map', coords, zoom);
 
   const osmLayer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
 
   const containerID = "main-map";
   const coords = [53.4576, -2.1578];
-  const zoom = 10;
+  const zoom = 14;
   const mainMap = new MapWrapper(containerID, coords, zoom);
 
+
+  const showNearMeButton = document.getElementById('showNearMe');
+  showNearMeButton.addEventListener('click', () => showAedsNearMe(mainMap));
   makeRequest(url, requestComplete);
 }
 
