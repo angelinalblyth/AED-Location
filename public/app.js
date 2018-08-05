@@ -43,7 +43,7 @@ const showAedsNearMe = function(mainMap){
   })
 }
 
-const handleSelected = function(defibs, mainMap){
+const handleSelected = function(defibs){
   let selectTag = document.getElementById('defibLocationDropdown');
   selectTag.addEventListener('change', function(){
     const defib = defibs[this.value];
@@ -52,13 +52,9 @@ const handleSelected = function(defibs, mainMap){
 
     const coords = [defib.Latitude, defib.Longitude];
     console.log(coords);
-
-//Below not working, keeps saying already defined or not defined.
-    // const containerID = "main-map";
-    // const zoom = 14;
-    // const mainMap = new MapWrapper(containerID, coords, zoom);
-    //
-    // mainMap.moveMap(coords);
+    console.log(this);
+    //Unable to see moveMap.
+    mainMap.moveMap(coords);
     //addPin(defib);
   })
 
@@ -117,13 +113,7 @@ var app = function(){
   const containerID = "main-map";
   const coords = [53.4576, -2.1578];
   const zoom = 14;
-  const mainMap = new MapWrapper(containerID, coords, zoom);
-
-  // const showAEDLocation = document.getElementsByClassName("select-result");
-  // showAEDLocation.addEventListener('click', () =>{
-  //   moveToAEDLocation(mainMap, url);
-  // })
-
+  mainMap = new MapWrapper(containerID, coords, zoom);
 
   const showNearMeButton = document.getElementById('showNearMe');
   showNearMeButton.addEventListener('click', () => showAedsNearMe(mainMap));
