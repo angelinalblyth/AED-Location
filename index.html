@@ -16,10 +16,14 @@
 
   <script src="mapWrapper.js"></script>
   <script src="app.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Slabo+27px" rel="stylesheet">
 </head>
 <body>
   <div id='information'>
   <h1>Automated External Defibrillators Location</h1>
+
+  <img src ="images/AED.jpg">
 
   <p>
     Below you can search for a location and you will see a result of nearby defibrillators.
@@ -37,8 +41,15 @@
   <div id="main-map">
   </div>
   <div id="search-div">
-    <input id="search-query" name="search-query" />
+    <p>
+      Please search for a location
+    </p>
+    <input id="search-query" name="search-query" type="text"/>
     <button id='searchbutton' type="submit">Search</button>
+  </div>
+
+  <div id="LocationDropdown">
+
     <select id= 'defibLocationDropdown'></select>
   </div>
 

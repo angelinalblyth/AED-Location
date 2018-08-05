@@ -62,7 +62,7 @@ const showDefibDetails = function(defib){
   var defibDetails = document.getElementById('defibDetails');
 
   //Location name
-  var location = document.createElement('h1');
+  var location = document.createElement('h2');
   location.innerText = defib.Location;
   defibDetails.appendChild(location);
   //Location address line 1
