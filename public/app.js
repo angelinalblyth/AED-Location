@@ -47,10 +47,12 @@ const handleSelected = function(defibs, mainMap){
   let selectTag = document.getElementById('defibLocationDropdown');
   selectTag.addEventListener('change', function(){
     let defib = defibs[this.value];
-    //let coords = [defib.Latitude, defib.longitude];
+    let coords = [defib.Latitude, defib.Longitude];
     console.log(defib);
+    console.log(coords);
     showDefibDetails(defib);
-    //mainMap.moveMap(coords);
+    const mainMap = new MapWrapper(coords);
+    mainMap.moveMap(coords);
     //addPin(defib);
   })
 
