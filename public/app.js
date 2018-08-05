@@ -46,21 +46,27 @@ const showAedsNearMe = function(mainMap){
 const handleSelected = function(defibs, mainMap){
   let selectTag = document.getElementById('defibLocationDropdown');
   selectTag.addEventListener('change', function(){
-    let defib = defibs[this.value];
-    let coords = [defib.Latitude, defib.Longitude];
+    const defib = defibs[this.value];
     console.log(defib);
-    console.log(coords);
     showDefibDetails(defib);
-    const mainMap = new MapWrapper(coords);
-    mainMap.moveMap(coords);
+
+    const coords = [defib.Latitude, defib.Longitude];
+    console.log(coords);
+
+//Below not working, keeps saying already defined or not defined.
+    // const containerID = "main-map";
+    // const zoom = 14;
+    // const mainMap = new MapWrapper(containerID, coords, zoom);
+    //
+    // mainMap.moveMap(coords);
     //addPin(defib);
   })
 
 };
 
 //Move the map to location of AEDs
-//Get the selected AED from the dropdown
-//Get the Latitude and Longitude from selected AED
+//Get the selected AED from the dropdown - done
+//Get the Latitude and Longitude from selected AED - done
 //Put this into a function that pans to the location
 //Add pin with the details
 
