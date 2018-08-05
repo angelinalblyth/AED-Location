@@ -50,27 +50,11 @@ const handleSelected = function(defibs){
     showDefibDetails(defib);
 
     const coords = [defib.Latitude, defib.Longitude];
-    console.log(coords);
-    console.log(this);
     mainMap.moveMap(coords);
     mainMap.addMarker(coords);
   })
 
 };
-
-//Move the map to location of AEDs
-//Get the selected AED from the dropdown - done
-//Get the Latitude and Longitude from selected AED - done
-//Put this into a function that pans to the location - done
-//Add pin with the details - done
-
-
-// const addPin = function(defib){
-//   const container = document.getElementById('main-map')
-//   const center = [defib.Latitude, defib.Longitude]
-//   const mainMap = new MapWrapper(container, center, 5)
-//   mainMap.addMarker(center)
-// }
 
 
 const showDefibDetails = function(defib){
