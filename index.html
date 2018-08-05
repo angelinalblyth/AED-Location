@@ -18,6 +18,7 @@
   <script src="app.js"></script>
 </head>
 <body>
+  <div id='information'>
   <h1>Automated External Defibrillators Location</h1>
 
   <p>
@@ -31,12 +32,13 @@
   <p>
     Locations of Automated External Defibrillators (AEDs) in Trafford, Greater Manchester. The dataset was crowdsourced. The locations may not be exact in all cases as they are derived from postcodes. Please note that these defibrillators may have restrictions on public availability and may not be available 24/7.
   </p>
+  </div>
 
   <div id="main-map">
   </div>
   <div id="search-div">
     <input id="search-query" name="search-query" />
-    <button type="submit">Search</button>
+    <button id='searchbutton' type="submit">Search</button>
   </div>
 
   <button id='showNearMe'>Show defibrillators near me.</button>

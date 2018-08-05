@@ -11,8 +11,6 @@ MapWrapper.prototype.handleMapClick = function (event) {
   this.addMarker(event.latlng.lat, event.latlng.lng);
 };
 
-MapWrapper.prototype.addMarker = function(lat, lng, text){
-  L.marker([lat, lng])
-  .bindPopup(text)
-  .addTo(this.map);
+MapWrapper.prototype.addMarker = function(coords){
+  L.marker(coords).addTo(this.map);
 }

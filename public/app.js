@@ -10,8 +10,15 @@ const requestComplete = function() {
   const jsonString = this.responseText;
   defibs = JSON.parse(jsonString);
   //showTraffordCentral(defibs)
-  showListOfDefibs(defibs)
-  handleSelected(defibs)
+  let searchQuery = document.getElementById('search-query');
+  let searchEntry = searchQuery.value;
+
+  const filteredDefibs = defibs.filter(function(defib){
+    return defib.Location.includes(searchEntry);
+  })
+
+  showListOfDefibs(filteredDefibs);
+  handleSelected(filteredDefibs);
 }
 
 const showListOfDefibs = function(defibs){
@@ -33,19 +40,35 @@ const showListOfDefibs = function(defibs){
 const showAedsNearMe = function(mainMap){
   navigator.geolocation.getCurrentPosition(function(position){
     let coords = [position.coords.latitude, position.coords.longitude];
-    mainMap.moveMap(coords);
   })
 }
 
-const handleSelected = function(defibs){
+const handleSelected = function(defibs, mainMap){
   let selectTag = document.getElementById('defibLocationDropdown');
   selectTag.addEventListener('change', function(){
-    var defib = defibs[this.value];
+    let defib = defibs[this.value];
+    //let coords = [defib.Latitude, defib.longitude];
     console.log(defib);
     showDefibDetails(defib);
+    //mainMap.moveMap(coords);
+    //addPin(defib);
   })
+
 };
 
+//Move the map to location of AEDs
+//Get the selected AED from the dropdown
+//Get the Latitude and Longitude from selected AED
+//Put this into a function that pans to the location
+//Add pin with the details
+
+
+// const addPin = function(defib){
+//   const container = document.getElementById('main-map')
+//   const center = [defib.Latitude, defib.Longitude]
+//   const mainMap = new MapWrapper(container, center, 5)
+//   mainMap.addMarker(center)
+// }
 
 
 const showDefibDetails = function(defib){
@@ -80,26 +103,27 @@ const showDefibDetails = function(defib){
   localStorage.setItem('selected_defib', jsonString);
 };
 
-
-// find browser location
-//const findMe =function(){return navigator.geolocation.getCurrentPosition(function(position){return position})}
-//const findMe3 = function(){return navigator.geolocation.getCurrentPosition(function(position){console.log(position.coords)})}
-
 var app = function(){
   const url = 'https://www.trafforddatalab.io/open_data/defibrillators/trafford_defibrillators.json';
-  //const map = new MapWrapper('main-map', coords, zoom);
-
   const osmLayer = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png")
-
   const containerID = "main-map";
   const coords = [53.4576, -2.1578];
   const zoom = 14;
   const mainMap = new MapWrapper(containerID, coords, zoom);
 
+  // const showAEDLocation = document.getElementsByClassName("select-result");
+  // showAEDLocation.addEventListener('click', () =>{
+  //   moveToAEDLocation(mainMap, url);
+  // })
+
 
   const showNearMeButton = document.getElementById('showNearMe');
   showNearMeButton.addEventListener('click', () => showAedsNearMe(mainMap));
-  makeRequest(url, requestComplete);
+
+  const searchButton = document.getElementById('searchbutton');
+  searchButton.addEventListener('click', () => {
+    makeRequest(url, requestComplete);
+  })
 }
 
 window.addEventListener('load', app);

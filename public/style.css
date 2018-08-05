@@ -2,3 +2,11 @@
   height: 400px;
   width: auto;
 }
+
+#information{
+  width: auto;
+  height: auto;
+}
+h1{
+  background-color: grey;
+}
