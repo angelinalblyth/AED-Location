@@ -3,6 +3,10 @@ const MapWrapper = function(containerID, coords, zoom) {
   this.map = L.map(containerID).setView(coords, zoom).addLayer(osmLayer);
 }
 
+MapWrapper.prototype.currentLocation = function (coords) {
+  this.map.setView(coords);
+};
+
 MapWrapper.prototype.moveMap = function (coords) {
  this.map.flyTo(coords);
 };

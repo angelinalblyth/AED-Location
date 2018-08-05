@@ -39,6 +39,7 @@ const showListOfDefibs = function(defibs){
 const showAedsNearMe = function(mainMap){
   navigator.geolocation.getCurrentPosition(function(position){
     let coords = [position.coords.latitude, position.coords.longitude];
+    mainMap.currentLocation(coords);
   })
 }
 
