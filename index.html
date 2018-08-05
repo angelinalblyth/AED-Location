@@ -21,21 +21,18 @@
 </head>
 <body>
   <div id='information'>
-  <h1>Automated External Defibrillators Location</h1>
+    <h1>Automated External Defibrillators Location</h1>
+    <p>
+      Below you can search for a location and you will see a result of nearby defibrillators.
+    </p>
 
-  <img src ="images/AED.jpg">
+    <p>
+      P.O.C - only working for the Trafford area.
+    </p>
 
-  <p>
-    Below you can search for a location and you will see a result of nearby defibrillators.
-  </p>
-
-  <p>
-    P.O.C - only working for the Trafford area.
-  </p>
-
-  <p>
-    Locations of Automated External Defibrillators (AEDs) in Trafford, Greater Manchester. The dataset was crowdsourced. The locations may not be exact in all cases as they are derived from postcodes. Please note that these defibrillators may have restrictions on public availability and may not be available 24/7.
-  </p>
+    <p>
+      Locations of Automated External Defibrillators (AEDs) in Trafford, Greater Manchester. The dataset was crowdsourced. The locations may not be exact in all cases as they are derived from postcodes. Please note that these defibrillators may have restrictions on public availability and may not be available 24/7.
+    </p>
   </div>
 
   <div id="main-map">
@@ -52,21 +49,26 @@
 
     <select id= 'defibLocationDropdown'></select>
   </div>
+  <div id="nearMe">
 
-  <button id='showNearMe'>Show defibrillators near me.</button>
-  <br />
-
+    <button id='showNearMe'>Show defibrillators near me.</button>
+    <br />
+  </div>
   <div id="defibDetails">
 
   </div>
   <div id='locationSuggestions'>
-    <p>
-      Locations suggestions container.
-    </p>
-  </div>
+    <!-- <p>
 
-  <div>
-    <a href="https://data.gov.uk/dataset/6f38b81c-7985-4651-93b4-d67a695cdde4/defibrillators-in-trafford">Source</a>
-  </div>
+  </p> -->
+</div>
+
+<div>
+  <footer>
+    <p>Created by: Angelina Blyth</p>
+    <a href="https://github.com/angelinalblyth/AED-Location">Github</a>
+    <a href="https://data.gov.uk/dataset/6f38b81c-7985-4651-93b4-d67a695cdde4/defibrillators-in-trafford">API Source</a>
+  </footer>
+</div>
 </body>
 </html>
