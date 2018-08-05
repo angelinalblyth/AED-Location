@@ -9,7 +9,6 @@ const requestComplete = function() {
   if(this.status !== 200) return;
   const jsonString = this.responseText;
   defibs = JSON.parse(jsonString);
-  //showTraffordCentral(defibs)
   let searchQuery = document.getElementById('search-query');
   let searchEntry = searchQuery.value;
 
@@ -53,9 +52,8 @@ const handleSelected = function(defibs){
     const coords = [defib.Latitude, defib.Longitude];
     console.log(coords);
     console.log(this);
-    //Unable to see moveMap.
     mainMap.moveMap(coords);
-    //addPin(defib);
+    mainMap.addMarker(coords);
   })
 
 };
@@ -63,8 +61,8 @@ const handleSelected = function(defibs){
 //Move the map to location of AEDs
 //Get the selected AED from the dropdown - done
 //Get the Latitude and Longitude from selected AED - done
-//Put this into a function that pans to the location
-//Add pin with the details
+//Put this into a function that pans to the location - done
+//Add pin with the details - done
 
 
 // const addPin = function(defib){
