@@ -11,6 +11,7 @@ MapWrapper.prototype.moveMap = function (coords) {
  this.map.flyTo(coords);
 };
 
+//Not used
 MapWrapper.prototype.handleMapClick = function (event) {
   this.addMarker(event.latlng.lat, event.latlng.lng);
 };

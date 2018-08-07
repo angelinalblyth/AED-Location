@@ -28,6 +28,7 @@
 
 h1{
   text-align: center;
+  text-decoration: underline;
 }
 button {
   background-color: #555555;
